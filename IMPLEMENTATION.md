@@ -12,3 +12,13 @@ Initialized empty gogit repository in .gogit/
 ```
 error: gogit repository already exists
 
+
+# Reads Hash Object 
+
+```
+go run ./cmd/gogit hash-object .gitignore
+```
+
+read 574 bytes from .gitignore
+header:  blob 574
+raw object size:  583
