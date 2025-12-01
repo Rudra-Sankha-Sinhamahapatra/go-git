@@ -6,6 +6,11 @@ import (
 	"path/filepath"
 )
 
+/*
+ Creates .gogit repo like git init
+ @InitRepo
+*/
+
 func InitRepo(path string) error {
 	gitPath := filepath.Join(path, ".gogit")
 

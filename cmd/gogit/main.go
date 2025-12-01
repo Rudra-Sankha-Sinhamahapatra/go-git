@@ -21,6 +21,25 @@ func main() {
 			return
 		}
 		fmt.Println("Initialized empty gogit repository in .gogit/")
+
+	case "hash-object":
+		if len(os.Args) < 3 {
+			fmt.Println("usage: gogit hash-object <file>")
+			return
+
+		}
+		err := repo.HashObjectSizeRead(os.Args[2])
+		if err != nil {
+			fmt.Println("error:", err)
+			return
+		}
+
+		_, err = repo.CreateRawGoGitObject(os.Args[2])
+		if err != nil {
+			fmt.Println("error:", err)
+			return
+		}
+
 	default:
 		fmt.Println("unknown command:", os.Args[1])
 	}
