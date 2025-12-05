@@ -34,7 +34,13 @@ func main() {
 			return
 		}
 
-		_, err = repo.CreateRawGoGitObject(os.Args[2])
+		raw, err := repo.CreateRawGoGitObject(os.Args[2])
+		if err != nil {
+			fmt.Println("error:", err)
+			return
+		}
+
+		_, err = repo.ComputeGoGitObectHash(raw)
 		if err != nil {
 			fmt.Println("error:", err)
 			return
