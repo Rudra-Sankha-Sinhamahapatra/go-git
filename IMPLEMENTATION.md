@@ -22,3 +22,5 @@ go run ./cmd/gogit hash-object .gitignore
 read 574 bytes from .gitignore
 header:  blob 574
 raw object size:  583
+object hash: 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c
+object written to: .gogit/objects/2c/f24dba5fb0a30e26e83b2ac5b9e29e1b161e5c
