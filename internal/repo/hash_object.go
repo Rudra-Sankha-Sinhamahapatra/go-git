@@ -1,10 +1,12 @@
 package repo
 
 import (
+	"compress/zlib"
 	"crypto/sha1"
 	"encoding/hex"
 	"fmt"
 	"os"
+	"path/filepath"
 )
 
 /*
@@ -63,4 +65,49 @@ func ComputeGoGitObectHash(raw []byte) (string, error) {
 	fmt.Println("object hash:", hash)
 
 	return hash, nil
+}
+
+/*
+  Writes a compressed git object into .gogit/objects/ directory
+  @WriteGoGitObject
+*/
+
+func WriteGoGitObject(hash string, raw []byte, repoPath string) error {
+	if len(hash) < 2 {
+		return fmt.Errorf("invalid hash")
+	}
+
+	dir := hash[:2]
+
+	file := hash[2:]
+
+	objectDir := filepath.Join(repoPath, "objects", dir)
+	objectPath := filepath.Join(objectDir, file)
+
+	if err := os.MkdirAll(objectDir, 0755); err != nil {
+		return fmt.Errorf("cannot create object directory: %w", err)
+	}
+
+	f, err := os.Create(objectPath)
+	if err != nil {
+		return fmt.Errorf("cannot create object file: %w", err)
+	}
+
+	defer f.Close()
+
+	w := zlib.NewWriter(f)
+
+	_, err = w.Write(raw)
+
+	if err != nil {
+		return fmt.Errorf("cannot write compressed object: %w", err)
+	}
+
+	if err := w.Close(); err != nil {
+		return fmt.Errorf("cannot close compressed writer: %w", err)
+	}
+
+	fmt.Println("object written to:", objectPath)
+
+	return nil
 }

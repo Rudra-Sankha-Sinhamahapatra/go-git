@@ -40,7 +40,13 @@ func main() {
 			return
 		}
 
-		_, err = repo.ComputeGoGitObectHash(raw)
+		hash, err := repo.ComputeGoGitObectHash(raw)
+		if err != nil {
+			fmt.Println("error:", err)
+			return
+		}
+
+		err = repo.WriteGoGitObject(hash, raw, ".gogit/")
 		if err != nil {
 			fmt.Println("error:", err)
 			return
