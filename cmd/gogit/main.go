@@ -60,7 +60,19 @@ func main() {
 
 		hash := os.Args[3]
 
-		_, err := repo.ReadCompressedGoGitObject(hash, ".")
+		compressed, err := repo.ReadCompressedGoGitObject(hash, ".")
+		if err != nil {
+			fmt.Println("error:", err)
+			return
+		}
+
+		decompressed, err := repo.DecompressesGoGitObject(compressed)
+		if err != nil {
+			fmt.Println("error:", err)
+			return
+		}
+
+		_, _, _, err = repo.ParseGoGitObjectHeader(decompressed)
 		if err != nil {
 			fmt.Println("error:", err)
 			return
