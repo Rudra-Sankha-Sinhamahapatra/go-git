@@ -99,3 +99,17 @@ func ParseGoGitObjectHeader(raw []byte) (string, int, []byte, error) {
 
 	return objectType, size, content, nil
 }
+
+/*
+Prints the content of a git object in human-readable form
+@PrintGoGitObjectContent
+*/
+
+func PrintGoGitObjectContent(content []byte) {
+	if len(content) == 0 {
+		fmt.Println("content is empty")
+		return
+	}
+
+	fmt.Print(string(content))
+}

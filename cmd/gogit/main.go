@@ -53,7 +53,7 @@ func main() {
 		}
 
 	case "cat-file":
-		if len(os.Args) < 4 {
+		if len(os.Args) < 4 || os.Args[2] != "-p" {
 			fmt.Println("usage: gogit cat-file -p <hash>")
 			return
 		}
@@ -72,11 +72,13 @@ func main() {
 			return
 		}
 
-		_, _, _, err = repo.ParseGoGitObjectHeader(decompressed)
+		_, _, content, err := repo.ParseGoGitObjectHeader(decompressed)
 		if err != nil {
 			fmt.Println("error:", err)
 			return
 		}
+
+		repo.PrintGoGitObjectContent(content)
 
 	default:
 		fmt.Println("unknown command:", os.Args[1])
