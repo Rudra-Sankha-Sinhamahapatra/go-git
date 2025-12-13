@@ -81,11 +81,12 @@ func main() {
 		repo.PrintGoGitObjectContent(content)
 
 	case "write-tree":
-		err := repo.WalkWorkingDirectory(".", 0)
+		treeHash, err := repo.WriteTree(".", ".gogit/")
 		if err != nil {
 			fmt.Println("error:", err)
 			return
 		}
+		fmt.Println("root tree hash:", treeHash)
 
 	default:
 		fmt.Println("unknown command:", os.Args[1])
