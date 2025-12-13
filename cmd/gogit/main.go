@@ -80,6 +80,13 @@ func main() {
 
 		repo.PrintGoGitObjectContent(content)
 
+	case "write-tree":
+		err := repo.WalkWorkingDirectory(".", 0)
+		if err != nil {
+			fmt.Println("error:", err)
+			return
+		}
+
 	default:
 		fmt.Println("unknown command:", os.Args[1])
 	}
