@@ -76,3 +76,57 @@ tree written with hash: e011ede034cd14ec0a2185feca7ad390a69366c4
 root tree hash: e011ede034cd14ec0a2185feca7ad390a69366c4
 
 
+# Commit Tree
+
+```
+ go run ./cmd/gogit commit-tree -m "first commit"
+ ```
+
+object hash: 56294e459e92315a1f5fa0418e14e8394b54c04e
+object hash: 7c2fe49d1e08a313ac13925b2376ebfbd870d862
+object hash: a5c93a920b4ca10a8bd9ebdf359b57ec1600bfd3
+object hash: a050a32688507915ef79b7d85121885f6d6abc4b
+object hash: d8188bca967cf236f7bf4546660317976c96896d
+object written to: .gogit/objects/d8/188bca967cf236f7bf4546660317976c96896d
+tree written with hash: d8188bca967cf236f7bf4546660317976c96896d
+object hash: 96a093d1ff97c01d84a265db967929210f636f4b
+object written to: .gogit/objects/96/a093d1ff97c01d84a265db967929210f636f4b
+tree written with hash: 96a093d1ff97c01d84a265db967929210f636f4b
+object hash: 921a86cce097adb34953b4f3bf410055a4f0c52f
+object hash: 20eaef3b03749979f0ea8b31a3a6857c208d347b
+object hash: b288c6993c230b52aa5984e4740cd5ac3a7d9762
+object hash: 988ae7f9f2161e306a2122bb5db7bebd8c0474b0
+object hash: 615778b217873062420b3e83db391252579e21f1
+object hash: 175c683e7201bc1c175d58938edbebcdedcb1bc7
+object hash: 1b3cdc6e810fb28480d2c7875007e318837e9787
+object written to: .gogit/objects/1b/3cdc6e810fb28480d2c7875007e318837e9787
+tree written with hash: 1b3cdc6e810fb28480d2c7875007e318837e9787
+object hash: 3bb184ac61d0eba2c7b297f2be47b5926753dabb
+object written to: .gogit/objects/3b/b184ac61d0eba2c7b297f2be47b5926753dabb
+tree written with hash: 3bb184ac61d0eba2c7b297f2be47b5926753dabb
+object hash: 89a1d6d8ea29f087437c15f0f1731d62e9548a28
+object written to: .gogit/objects/89/a1d6d8ea29f087437c15f0f1731d62e9548a28
+tree written with hash: 89a1d6d8ea29f087437c15f0f1731d62e9548a28
+object hash: bda006dc3733322c9b6f68b1573c4933ce52fd90
+object written to: .gogit/objects/bd/a006dc3733322c9b6f68b1573c4933ce52fd90
+wrote commit object bda006dc3733322c9b6f68b1573c4933ce52fd90
+commit hash: bda006dc3733322c9b6f68b1573c4933ce52fd90
+
+
+## Reading commit message via cat file
+
+``` 
+go run ./cmd/gogit cat-file -p 5698904604f413d391d77fa13332587b2e10e00d
+```
+
+compressed object size: 142
+object found at: .gogit/objects/56/98904604f413d391d77fa13332587b2e10e00d
+decompressed size: 226
+object type: commit
+declared size: 215
+actual content size: 215
+tree 89a1d6d8ea29f087437c15f0f1731d62e9548a28
+author Rudra Sankha Sinhamahapatra <rudra@rudrasankha.com> 1765865215 +0530
+committer Rudra Sankha Sinhamahapatra <rudra@rudrasankha.com> 1765865215 +0530
+
+first commit

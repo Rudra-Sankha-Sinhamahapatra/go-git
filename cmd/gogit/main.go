@@ -88,6 +88,33 @@ func main() {
 		}
 		fmt.Println("root tree hash:", treeHash)
 
+	case "commit-tree":
+		if len(os.Args) < 4 || os.Args[2] != "-m" {
+			fmt.Println("usage: gogit commit-tree -m <message>")
+			return
+		}
+
+		message := os.Args[3]
+
+		treeHash, err := repo.WriteTree(".", ".gogit/")
+		if err != nil {
+			fmt.Println("error:", err)
+			return
+		}
+
+		rawCommit, err := repo.CreateCommitObject(treeHash, message)
+		if err != nil {
+			fmt.Println("error:", err)
+			return
+		}
+
+		commitHash, err := repo.WriteCommitObject(rawCommit, ".gogit/")
+		if err != nil {
+			fmt.Println("error:", err)
+			return
+		}
+		fmt.Println("commit hash:", commitHash)
+
 	default:
 		fmt.Println("unknown command:", os.Args[1])
 	}
