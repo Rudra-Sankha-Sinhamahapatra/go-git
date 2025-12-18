@@ -115,6 +115,14 @@ func main() {
 		}
 		fmt.Println("commit hash:", commitHash)
 
+	case "head":
+		ref, err := repo.ResolveHEAD(".gogit/")
+		if err != nil {
+			fmt.Println("error:", err)
+			return
+		}
+		fmt.Println("HEAD points to:", ref)
+
 	default:
 		fmt.Println("unknown command:", os.Args[1])
 	}
