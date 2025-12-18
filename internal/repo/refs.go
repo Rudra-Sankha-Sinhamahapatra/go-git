@@ -29,3 +29,23 @@ func ResolveHEAD(repoPath string) (string, error) {
 	ref := strings.TrimPrefix(content, "ref: ")
 	return ref, nil
 }
+
+/*
+  Reads current commit hash from a ref
+  @ReadCurrentCommit
+*/
+
+func ReadCurrentCommit(repoPath string, ref string) (string, bool, error) {
+	refPath := repoPath + "/" + ref
+
+	data, err := os.ReadFile(refPath)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return "", false, nil
+		}
+		return "", false, fmt.Errorf("cannot read ref: %w", err)
+	}
+
+	commitHash := strings.TrimSpace(string(data))
+	return commitHash, true, nil
+}

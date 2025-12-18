@@ -130,3 +130,12 @@ author Rudra Sankha Sinhamahapatra <rudra@rudrasankha.com> 1765865215 +0530
 committer Rudra Sankha Sinhamahapatra <rudra@rudrasankha.com> 1765865215 +0530
 
 first commit
+
+# Head
+
+```
+ go run ./cmd/gogit head
+ ```
+
+HEAD points to: refs/heads/main
+no commits yet

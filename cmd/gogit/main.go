@@ -121,7 +121,20 @@ func main() {
 			fmt.Println("error:", err)
 			return
 		}
+
 		fmt.Println("HEAD points to:", ref)
+
+		hash, exists, err := repo.ReadCurrentCommit(".gogit/", ref)
+		if err != nil {
+			fmt.Println("error:", err)
+			return
+		}
+
+		if exists {
+			fmt.Println("current commit:", hash)
+		} else {
+			fmt.Println("no commits yet")
+		}
 
 	default:
 		fmt.Println("unknown command:", os.Args[1])
