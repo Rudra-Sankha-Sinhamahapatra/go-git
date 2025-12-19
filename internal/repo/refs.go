@@ -3,6 +3,7 @@ package repo
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 	"strings"
 )
 
@@ -48,4 +49,20 @@ func ReadCurrentCommit(repoPath string, ref string) (string, bool, error) {
 
 	commitHash := strings.TrimSpace(string(data))
 	return commitHash, true, nil
+}
+
+/*
+  Updates a ref to point to a commit hash
+  Example: refs/heads/main -> <commitHash>
+  @UpdateRef
+*/
+
+func UpdateRef(repoPath string, ref string, commitHash string) error {
+	refPath := repoPath + "/" + ref
+
+	if err := os.MkdirAll(filepath.Dir(refPath), 0755); err != nil {
+		return err
+	}
+
+	return os.WriteFile(refPath, []byte(commitHash+"\n"), 0644)
 }

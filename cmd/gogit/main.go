@@ -96,13 +96,30 @@ func main() {
 
 		message := os.Args[3]
 
+		ref, err := repo.ResolveHEAD(".gogit/")
+		if err != nil {
+			fmt.Println("error:", err)
+			return
+		}
+
+		parentHash, exists, err := repo.ReadCurrentCommit(".gogit/", ref)
+		if err != nil {
+			fmt.Println("error:", err)
+			return
+		}
+
 		treeHash, err := repo.WriteTree(".", ".gogit/")
 		if err != nil {
 			fmt.Println("error:", err)
 			return
 		}
 
-		rawCommit, err := repo.CreateCommitObject(treeHash, message)
+		var parentPtr *string
+		if exists {
+			parentPtr = &parentHash
+		}
+
+		rawCommit, err := repo.CreateCommitObject(treeHash, parentPtr, message)
 		if err != nil {
 			fmt.Println("error:", err)
 			return
@@ -113,6 +130,12 @@ func main() {
 			fmt.Println("error:", err)
 			return
 		}
+
+		if err := repo.UpdateRef(".gogit/", ref, commitHash); err != nil {
+			fmt.Println("error:", err)
+			return
+		}
+
 		fmt.Println("commit hash:", commitHash)
 
 	case "head":

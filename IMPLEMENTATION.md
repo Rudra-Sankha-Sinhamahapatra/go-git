@@ -139,3 +139,107 @@ first commit
 
 HEAD points to: refs/heads/main
 no commits yet
+
+## To Try it more
+
+```
+ go run ./cmd/gogit commit-tree -m "first"
+ ```
+ 
+object hash: 56294e459e92315a1f5fa0418e14e8394b54c04e
+object hash: ffcf7190d982cf54b2a2152cd65dd22c3db6a944
+object hash: a5c93a920b4ca10a8bd9ebdf359b57ec1600bfd3
+object hash: 87b52b4bed37c5a604cbefbd7f41d9052e901b86
+object hash: fe1c96bcb0e9c85c8d62764aff185021d8d12db1
+object written to: .gogit/objects/fe/1c96bcb0e9c85c8d62764aff185021d8d12db1
+tree written with hash: fe1c96bcb0e9c85c8d62764aff185021d8d12db1
+object hash: 0a3f1c80724bae5efcfe9a256cc19b0aa158c734
+object written to: .gogit/objects/0a/3f1c80724bae5efcfe9a256cc19b0aa158c734
+tree written with hash: 0a3f1c80724bae5efcfe9a256cc19b0aa158c734
+object hash: 921a86cce097adb34953b4f3bf410055a4f0c52f
+object hash: 20eaef3b03749979f0ea8b31a3a6857c208d347b
+object hash: 69064a23fcd5b6cadd96795712d7a869549dd699
+object hash: 988ae7f9f2161e306a2122bb5db7bebd8c0474b0
+object hash: 615778b217873062420b3e83db391252579e21f1
+object hash: 3fe12d4d38c57cce5a37253db96eb6af4326ee2c
+object hash: 175c683e7201bc1c175d58938edbebcdedcb1bc7
+object hash: 05bbf0c3c1e4b69cc93e01e3f274846d0a354cdd
+object written to: .gogit/objects/05/bbf0c3c1e4b69cc93e01e3f274846d0a354cdd
+tree written with hash: 05bbf0c3c1e4b69cc93e01e3f274846d0a354cdd
+object hash: cf0ba92794bcb937bb3f838cb3fff90a6dfd8241
+object written to: .gogit/objects/cf/0ba92794bcb937bb3f838cb3fff90a6dfd8241
+tree written with hash: cf0ba92794bcb937bb3f838cb3fff90a6dfd8241
+object hash: 33a0c130da921cc466552ce0d064106cfefeb0c3
+object written to: .gogit/objects/33/a0c130da921cc466552ce0d064106cfefeb0c3
+tree written with hash: 33a0c130da921cc466552ce0d064106cfefeb0c3
+object hash: e21b796e9c9735814596206baa947989e74c860d
+object written to: .gogit/objects/e2/1b796e9c9735814596206baa947989e74c860d
+wrote commit object e21b796e9c9735814596206baa947989e74c860d
+commit hash: e21b796e9c9735814596206baa947989e74c860d
+
+
+```
+go run ./cmd/gogit head
+```
+
+HEAD points to: refs/heads/main
+current commit: e21b796e9c9735814596206baa947989e74c860d
+
+```
+ go run ./cmd/gogit commit-tree -m "second"
+ ```
+
+object hash: 56294e459e92315a1f5fa0418e14e8394b54c04e
+object hash: ffcf7190d982cf54b2a2152cd65dd22c3db6a944
+object hash: a5c93a920b4ca10a8bd9ebdf359b57ec1600bfd3
+object hash: 87b52b4bed37c5a604cbefbd7f41d9052e901b86
+object hash: fe1c96bcb0e9c85c8d62764aff185021d8d12db1
+object written to: .gogit/objects/fe/1c96bcb0e9c85c8d62764aff185021d8d12db1
+tree written with hash: fe1c96bcb0e9c85c8d62764aff185021d8d12db1
+object hash: 0a3f1c80724bae5efcfe9a256cc19b0aa158c734
+object written to: .gogit/objects/0a/3f1c80724bae5efcfe9a256cc19b0aa158c734
+tree written with hash: 0a3f1c80724bae5efcfe9a256cc19b0aa158c734
+object hash: 921a86cce097adb34953b4f3bf410055a4f0c52f
+object hash: 20eaef3b03749979f0ea8b31a3a6857c208d347b
+object hash: 69064a23fcd5b6cadd96795712d7a869549dd699
+object hash: 988ae7f9f2161e306a2122bb5db7bebd8c0474b0
+object hash: 615778b217873062420b3e83db391252579e21f1
+object hash: 3fe12d4d38c57cce5a37253db96eb6af4326ee2c
+object hash: 175c683e7201bc1c175d58938edbebcdedcb1bc7
+object hash: 05bbf0c3c1e4b69cc93e01e3f274846d0a354cdd
+object written to: .gogit/objects/05/bbf0c3c1e4b69cc93e01e3f274846d0a354cdd
+tree written with hash: 05bbf0c3c1e4b69cc93e01e3f274846d0a354cdd
+object hash: cf0ba92794bcb937bb3f838cb3fff90a6dfd8241
+object written to: .gogit/objects/cf/0ba92794bcb937bb3f838cb3fff90a6dfd8241
+tree written with hash: cf0ba92794bcb937bb3f838cb3fff90a6dfd8241
+object hash: 33a0c130da921cc466552ce0d064106cfefeb0c3
+object written to: .gogit/objects/33/a0c130da921cc466552ce0d064106cfefeb0c3
+tree written with hash: 33a0c130da921cc466552ce0d064106cfefeb0c3
+object hash: 168e2f3dfccc9dff3c6cc73c17e471a50bf5c147
+object written to: .gogit/objects/16/8e2f3dfccc9dff3c6cc73c17e471a50bf5c147
+wrote commit object 168e2f3dfccc9dff3c6cc73c17e471a50bf5c147
+commit hash: 168e2f3dfccc9dff3c6cc73c17e471a50bf5c147
+
+```
+ go run ./cmd/gogit head        
+ ```           
+
+HEAD points to: refs/heads/main
+current commit: 168e2f3dfccc9dff3c6cc73c17e471a50bf5c147
+
+```
+ go run ./cmd/gogit cat-file -p 168e2f3dfccc9dff3c6cc73c17e471a50bf5c147
+ ```
+
+compressed object size: 171
+object found at: .gogit/objects/16/8e2f3dfccc9dff3c6cc73c17e471a50bf5c147
+decompressed size: 268
+object type: commit
+declared size: 257
+actual content size: 257
+tree 33a0c130da921cc466552ce0d064106cfefeb0c3
+parent e21b796e9c9735814596206baa947989e74c860d
+author Rudra Sankha Sinhamahapatra <rudra@rudrasankha.com> 1766127821 +0530
+committer Rudra Sankha Sinhamahapatra <rudra@rudrasankha.com> 1766127821 +0530
+
+second

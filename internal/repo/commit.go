@@ -10,19 +10,26 @@ import (
   @CreateCommitObject
 */
 
-func CreateCommitObject(treeHash string, message string) ([]byte, error) {
+func CreateCommitObject(treeHash string, parent *string, message string) ([]byte, error) {
 	author := "Rudra Sankha Sinhamahapatra <rudra@rudrasankha.com>"
 	committer := author
 
 	timestamp := time.Now().Unix()
 	timezone := "+0530"
 
+	var parentLine string
+	if parent != nil {
+		parentLine = fmt.Sprintf("parent %s\n", *parent)
+	}
+
 	content := fmt.Sprintf(
 		"tree %s\n"+
+			"%s"+
 			"author %s %d %s\n"+
 			"committer %s %d %s\n\n"+
 			"%s\n",
 		treeHash,
+		parentLine,
 		author, timestamp, timezone,
 		committer, timestamp, timezone,
 		message,
