@@ -243,3 +243,29 @@ author Rudra Sankha Sinhamahapatra <rudra@rudrasankha.com> 1766127821 +0530
 committer Rudra Sankha Sinhamahapatra <rudra@rudrasankha.com> 1766127821 +0530
 
 second
+
+
+## Git Log
+
+```
+ go run ./cmd/gogit log
+ ```
+
+compressed object size: 171
+object found at: .gogit/objects/16/8e2f3dfccc9dff3c6cc73c17e471a50bf5c147
+decompressed size: 268
+object type: commit
+declared size: 257
+actual content size: 257
+commit 168e2f3dfccc9dff3c6cc73c17e471a50bf5c147
+second
+
+
+compressed object size: 140
+object found at: .gogit/objects/e2/1b796e9c9735814596206baa947989e74c860d
+decompressed size: 219
+object type: commit
+declared size: 208
+actual content size: 208
+commit e21b796e9c9735814596206baa947989e74c860d
+first

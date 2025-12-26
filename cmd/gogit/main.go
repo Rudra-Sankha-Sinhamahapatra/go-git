@@ -159,6 +159,12 @@ func main() {
 			fmt.Println("no commits yet")
 		}
 
+	case "log":
+		err := repo.LogCommits(".gogit", ".")
+		if err != nil {
+			fmt.Println("error:", err)
+		}
+
 	default:
 		fmt.Println("unknown command:", os.Args[1])
 	}
